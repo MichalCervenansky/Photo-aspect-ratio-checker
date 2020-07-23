@@ -13,7 +13,7 @@ dirname = sys.argv[1]
 # Aspect ratio 3:2, change it to 4:3 or something else if you need to.
 longEdge = 3
 shortEdge = 2
-ratio = round(longEdge // shortEdge, 4)
+ratio = round(longEdge / shortEdge, 4)
 # Iterator to count number of photos with correct aspect ratio.
 correct = 0
 
@@ -22,7 +22,7 @@ for filename in os.listdir(dirname):
         image = Image.open(dirname + os.sep + filename)
         width, height = image.size
         # Because of possible landscape and portrait orientation of image
-        if not (round(width // height, 4) == ratio or round(height // width == ratio, 4)):
+        if not (round(width / height, 4) == ratio or round(height / width == ratio, 4)):
             print(filename + " (" + str(width) + ":" + str(height) + ")")
         else:
             correct += 1
